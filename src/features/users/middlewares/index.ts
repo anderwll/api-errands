@@ -1,2 +1,3 @@
-export * from './validationData.middleware';
-export * from './validationExist.middleware';
+export * from './createUser.validator';
+export * from './existUser.validator';
+export * from './updateUser.validator';

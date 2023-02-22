@@ -1,8 +1,10 @@
 import express, { NextFunction, Request, Response } from 'express';
+import { handleUsersDataBase } from '../../../database/users';
+import { ResponseAPI } from '../../typeResponseAPI';
 import { TypeAccount } from '../../../models';
 import { z, ZodError } from 'zod';
 
-const validationDataUser = (req: Request, res: Response, next: NextFunction) => {
+const createUserValidator = (req: Request, res: Response, next: NextFunction) => {
     // MESSAGE ERROR
     const mesgRequiredError = 'Campo obrigátorio.';
     const msgFormatInvalid = 'Formato inválido.';
@@ -34,6 +36,21 @@ const validationDataUser = (req: Request, res: Response, next: NextFunction) => 
     });
 
     try {
+        const listUser = handleUsersDataBase();
+        const { email } = req.body;
+
+        const exist = listUser.some((user) => user.email === email);
+
+        if (exist) {
+            const response: ResponseAPI = {
+                success: false,
+                message: 'E-mail já cadastrado.',
+                data: null,
+            };
+
+            return res.status(400).json(response);
+        }
+
         const newBody = userScheme.parse(req.body);
 
         req.body = newBody;
@@ -54,4 +71,4 @@ const validationDataUser = (req: Request, res: Response, next: NextFunction) => 
     }
 };
 
-export { validationDataUser };
+export { createUserValidator };

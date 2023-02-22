@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import { handleUsersDataBase } from '../../../database/users';
 import { ResponseAPI } from '../../typeResponseAPI';
 
-const validationExistUser = (req: Request, res: Response, next: NextFunction) => {
+const existUserValidator = (req: Request, res: Response, next: NextFunction) => {
     const listUser = handleUsersDataBase();
     const { id } = req.params;
 
@@ -21,4 +21,4 @@ const validationExistUser = (req: Request, res: Response, next: NextFunction) =>
     return next();
 };
 
-export { validationExistUser };
+export { existUserValidator };
