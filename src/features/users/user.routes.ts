@@ -12,6 +12,8 @@ const userRoutes = (router: Router) => {
     router.get('/users/:id', existUserValidator, userController.getUserById);
 
     router.put('/users/:id', existUserValidator, updateUserValidator, userController.updateUser);
+
+    router.delete('/users/:id', existUserValidator, userController.deleteUser);
 };
 
 export { userRoutes };

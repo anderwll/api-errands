@@ -1,1 +1,20 @@
-[{"id":"8b64cff8-2a7e-4396-863a-b7e40ce3d94b","name":"Pedro da Silva","email":"pedro@gmail.com","password":"pedro123","darkMode":false,"typeAccount":"GUYS","errands":[]},{"id":"093f818c-a9b8-462d-9852-ac04bc0f7d15","name":"João Santos","email":"joao@gmail.com","password":"joao321","darkMode":false,"typeAccount":"BUSINESS","errands":[]}]
+[
+    {
+        "id": "8b64cff8-2a7e-4396-863a-b7e40ce3d94b",
+        "name": "Pedro Perreira Funk",
+        "email": "pedro@gmail.com",
+        "password": "pedro123",
+        "darkMode": false,
+        "typeAccount": "GUYS",
+        "errands": []
+    },
+    {
+        "id": "093f818c-a9b8-462d-9852-ac04bc0f7d15",
+        "name": "João Santos",
+        "email": "joao@gmail.com",
+        "password": "joao321",
+        "darkMode": false,
+        "typeAccount": "BUSINESS",
+        "errands": []
+    }
+]

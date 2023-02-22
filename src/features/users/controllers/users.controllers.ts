@@ -111,6 +111,36 @@ class UserController {
             return res.status(400).json(error);
         }
     }
+
+    deleteUser(req: Request, res: Response) {
+        try {
+            const listUser = handleUsersDataBase();
+
+            const { id } = req.params;
+
+            const index = listUser.findIndex((user) => user.id === id);
+
+            const [userDeleted] = listUser.splice(index, 1);
+
+            saveUsersDataBase(listUser);
+
+            const response: ResponseAPI = {
+                success: true,
+                message: 'Usuário deletado com sucesso.',
+                data: userDeleted.handleProperties(),
+            };
+
+            return res.status(200).json(response);
+        } catch (error: any) {
+            const response: ResponseAPI = {
+                success: false,
+                message: error.message,
+                data: null,
+            };
+
+            return res.status(400).json(error);
+        }
+    }
 }
 
 export { UserController };
