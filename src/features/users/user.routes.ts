@@ -17,8 +17,3 @@ const userRoutes = (router: Router) => {
 };
 
 export { userRoutes };
-
-// name: string;
-// password: string;
-// darkMode: boolean;
-// typeAccount: TypeAccount;

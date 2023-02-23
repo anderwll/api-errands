@@ -2,38 +2,34 @@ import express, { NextFunction, Request, Response } from 'express';
 import { TypeAccount } from '../../../models';
 import { z, ZodError } from 'zod';
 
-const updateUserValidator = (req: Request, res: Response, next: NextFunction) => {
+const updateErrandValidator = (req: Request, res: Response, next: NextFunction) => {
     // MESSAGE ERROR
     const mesgRequiredError = 'Campo obrigátorio.';
     const msgFormatInvalid = 'Formato inválido.';
-    const msgMinPassword = 'Senha deve conter no mínimo 6 caracteres.';
-    const msgCharactersPassword = 'Senha deve conter no mínimo 1 letra e 1 número.';
 
-    const userScheme = z
+    const errandScheme = z
         .object({
-            name: z.string({
+            title: z.string({
                 invalid_type_error: msgFormatInvalid,
                 required_error: mesgRequiredError,
             }),
-            password: z
-                .string({
-                    invalid_type_error: msgFormatInvalid,
-                    required_error: mesgRequiredError,
-                })
-                .min(6, { message: msgMinPassword })
-                .regex(/^(?=.*[a-z])(?=.*[0-9])/, { message: msgCharactersPassword }),
-            darkMode: z.boolean({
+            description: z.string({
                 invalid_type_error: msgFormatInvalid,
                 required_error: mesgRequiredError,
             }),
-            typeAccount: z.nativeEnum(TypeAccount, {
+            filed: z.boolean({
+                invalid_type_error: msgFormatInvalid,
+                required_error: mesgRequiredError,
+            }),
+            check: z.boolean({
+                invalid_type_error: msgFormatInvalid,
                 required_error: mesgRequiredError,
             }),
         })
         .partial();
 
     try {
-        const newBody = userScheme.parse(req.body);
+        const newBody = errandScheme.parse(req.body);
 
         req.body = newBody;
 
@@ -53,4 +49,4 @@ const updateUserValidator = (req: Request, res: Response, next: NextFunction) =>
     }
 };
 
-export { updateUserValidator };
+export { updateErrandValidator };

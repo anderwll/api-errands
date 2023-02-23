@@ -1,8 +1,23 @@
 import { randomUUID } from 'crypto';
 
-interface ErrandDTO {
+interface ErrandCreateDTO {
     title: string;
     description: string;
+}
+
+interface ErrandUpdateDTO {
+    title: string;
+    description: string;
+    filed: boolean;
+    check: boolean;
+}
+
+interface ErrandDataBaseDTO {
+    id: string;
+    title: string;
+    description: string;
+    filed: boolean;
+    check: boolean;
 }
 
 class Errand {
@@ -29,7 +44,7 @@ class Errand {
         return this._check;
     }
 
-    constructor(parms: ErrandDTO) {
+    constructor(parms: ErrandCreateDTO) {
         this._id = randomUUID();
         this._title = parms.title;
         this._description = parms.description;
@@ -46,6 +61,29 @@ class Errand {
             check: this._check,
         };
     }
+
+    updateErrand(parms: ErrandUpdateDTO) {
+        if (parms.title) this._title = parms.title;
+
+        if (parms.description) this._description = parms.description;
+
+        if (parms.filed) this._filed = parms.filed;
+
+        if (parms.check) this._check = parms.check;
+    }
+
+    static createErrandFromDataBase(params: ErrandDataBaseDTO) {
+        const errand = new Errand({
+            title: params.title,
+            description: params.description,
+        });
+
+        errand._id = params.id;
+        errand._filed = params.filed;
+        errand._check = params.check;
+
+        return errand;
+    }
 }
 
-export { Errand, ErrandDTO };
+export { Errand, ErrandCreateDTO, ErrandUpdateDTO };

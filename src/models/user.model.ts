@@ -59,7 +59,7 @@ class User {
         return this._typeAccount;
     }
     get errands() {
-        return [...this._errands];
+        return this._errands;
     }
 
     constructor(parms: UserCreateDTO) {
@@ -97,18 +97,19 @@ class User {
 
     // -- CREATE FROM DATA BASE
     static createFromDataBase(parms: UserDataBaseDTO) {
-        const newUser = new User({
+        const user = new User({
             name: parms.name,
             email: parms.email,
             password: parms.password,
             typeAccount: parms.typeAccount,
         });
 
-        newUser._id = parms.id;
-        newUser._darkMode = parms.darkMode;
-        newUser._errands = parms.errands;
+        user._id = parms.id;
+        user._darkMode = parms.darkMode;
+        user._errands = parms.errands;
+        //user._errands = parms.errands.map((errand) => Errand.createErrandFromDataBase(errand));
 
-        return newUser;
+        return user;
     }
 }
 

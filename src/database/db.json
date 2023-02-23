@@ -6,7 +6,22 @@
         "password": "pedro123",
         "darkMode": false,
         "typeAccount": "GUYS",
-        "errands": []
+        "errands": [
+            {
+                "_id": "2b58cd9f-da21-4491-8251-66e08b09f605",
+                "_title": "Secar",
+                "_description": "Secar toda louça...",
+                "_filed": false,
+                "_check": false
+            },
+            {
+                "_id": "e5eaa4d0-78fe-4af0-9ab1-9a0806f79fca",
+                "_title": "lavar editado com sucesso",
+                "_description": "lavar editado la la la",
+                "_filed": true,
+                "_check": false
+            }
+        ]
     },
     {
         "id": "093f818c-a9b8-462d-9852-ac04bc0f7d15",
