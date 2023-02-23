@@ -8,18 +8,18 @@
         "typeAccount": "GUYS",
         "errands": [
             {
-                "_id": "2b58cd9f-da21-4491-8251-66e08b09f605",
-                "_title": "Secar",
-                "_description": "Secar toda louça...",
-                "_filed": false,
-                "_check": false
+                "id": "2e454347-9e44-49a9-9c6a-9b3fa06918a4",
+                "title": "Correr",
+                "description": "Correr na segunda",
+                "filed": true,
+                "check": false
             },
             {
-                "_id": "e5eaa4d0-78fe-4af0-9ab1-9a0806f79fca",
-                "_title": "lavar editado com sucesso",
-                "_description": "lavar editado la la la",
-                "_filed": true,
-                "_check": false
+                "id": "d0084e7f-dee5-4158-a7c0-b04f0119b626",
+                "title": "Recado teste",
+                "description": "Testando recados",
+                "filed": false,
+                "check": false
             }
         ]
     },

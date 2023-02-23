@@ -40,13 +40,32 @@ class ErrandController {
         try {
             const listUser = handleUsersDataBase();
             const { id } = req.params;
+            const { title, filed } = req.query;
 
             const user = listUser.find((user) => user.id === id) as User;
+
+            const errands = user.errands.filter((errand) => {
+                if (title && filed) {
+                    return (
+                        errand.title.toLowerCase().includes((title as string).toLowerCase()) &&
+                        errand.filed === Boolean(filed === 'true' ? true : false)
+                    );
+                }
+
+                if (title || filed) {
+                    return (
+                        errand.title.toLowerCase().includes((title as string).toLowerCase()) ||
+                        errand.filed === Boolean(filed === 'true' ? true : false)
+                    );
+                }
+
+                return true;
+            });
 
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recados buscado com sucesso.',
-                data: user.errands,
+                data: errands,
             };
 
             return res.status(200).json(response);

@@ -72,6 +72,7 @@ class Errand {
         if (parms.check) this._check = parms.check;
     }
 
+    // -- CREATE FROM DATA BASE
     static createErrandFromDataBase(params: ErrandDataBaseDTO) {
         const errand = new Errand({
             title: params.title,
