@@ -73,7 +73,7 @@ class Errand {
     }
 
     // -- CREATE FROM DATA BASE
-    static createErrandFromDataBase(params: ErrandDataBaseDTO) {
+    static createErrandFromDataBase(params: ErrandDataBaseDTO): Errand {
         const errand = new Errand({
             title: params.title,
             description: params.description,

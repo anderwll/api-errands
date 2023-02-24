@@ -44,6 +44,8 @@ class ErrandController {
 
             const user = listUser.find((user) => user.id === id) as User;
 
+            console.log(user.errands);
+
             const errands = user.errands.filter((errand) => {
                 if (title && filed) {
                     return (
@@ -118,14 +120,6 @@ class ErrandController {
             const indexErrand = listUser[indexUser].errands.findIndex(
                 (errand) => errand.id === idErrand,
             );
-
-            // title: string;
-            // description: string;
-            // filed: boolean;
-            // check: boolean;
-
-            console.log(listUser[indexUser].errands[indexErrand]);
-            console.log(req.body);
 
             listUser[indexUser].errands[indexErrand].updateErrand({
                 title,

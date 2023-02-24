@@ -106,9 +106,8 @@ class User {
 
         user._id = parms.id;
         user._darkMode = parms.darkMode;
-        //user._errands = parms.errands;
-        parms.errands.forEach((errand) => Errand.createErrandFromDataBase(errand));
         user._errands = parms.errands;
+        //user._errands = parms.errands.map((errand) => Errand.createErrandFromDataBase(errand));
 
         return user;
     }

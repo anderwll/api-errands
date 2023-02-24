@@ -8,16 +8,16 @@
         "typeAccount": "GUYS",
         "errands": [
             {
-                "id": "2e454347-9e44-49a9-9c6a-9b3fa06918a4",
-                "title": "Correr",
-                "description": "Correr na segunda",
-                "filed": true,
+                "id": "a6bf504e-708a-403e-8f6a-b7172053d69e",
+                "title": "Recado 1",
+                "description": "Testando",
+                "filed": false,
                 "check": false
             },
             {
-                "id": "d0084e7f-dee5-4158-a7c0-b04f0119b626",
-                "title": "Recado teste",
-                "description": "Testando recados",
+                "id": "bdcf88d9-8ea6-47e0-868a-bc6e4e903005",
+                "title": "Recado 2",
+                "description": "Testando",
                 "filed": false,
                 "check": false
             }
