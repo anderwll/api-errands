@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from 'fs';
 import { User } from '../models';
 
 const path = `${__dirname}\\db.json`;
