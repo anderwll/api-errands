@@ -121,19 +121,25 @@ class ErrandController {
                 (errand) => errand.id === idErrand,
             );
 
-            listUser[indexUser].errands[indexErrand].updateErrand({
+            const editErrand = Errand.createErrandFromDataBase(
+                listUser[indexUser].errands[indexErrand],
+            );
+
+            const errandAtt = editErrand.updateErrand({
                 title,
                 description,
                 filed,
                 check,
             });
 
+            listUser[indexUser].errands[indexErrand] = editErrand.handleProperties() as Errand;
+
             saveUsersDataBase(listUser);
 
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado atualizado com sucesso.',
-                data: listUser[indexUser].errands[indexErrand].handleProperties(),
+                data: listUser[indexUser].errands[indexErrand],
             };
 
             return res.status(200).json(response);
