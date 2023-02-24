@@ -11,12 +11,15 @@ const createUserValidator = (req: Request, res: Response, next: NextFunction) =>
     const msgEmailInvalid = 'Utilize um e-mail válido.';
     const msgMinPassword = 'Senha deve conter no mínimo 6 caracteres.';
     const msgCharactersPassword = 'Senha deve conter no mínimo 1 letra e 1 número.';
+    const msgMinName = 'Nome deve conter no mínimo 3 caracteres.';
 
     const userScheme = z.object({
-        name: z.string({
-            invalid_type_error: msgFormatInvalid,
-            required_error: mesgRequiredError,
-        }),
+        name: z
+            .string({
+                invalid_type_error: msgFormatInvalid,
+                required_error: mesgRequiredError,
+            })
+            .min(3, { message: msgMinName }),
         email: z
             .string({
                 invalid_type_error: msgFormatInvalid,

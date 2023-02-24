@@ -6,17 +6,22 @@ const updateErrandValidator = (req: Request, res: Response, next: NextFunction) 
     // MESSAGE ERROR
     const mesgRequiredError = 'Campo obrigátorio.';
     const msgFormatInvalid = 'Formato inválido.';
+    const msgMin = 'Deve conter no mínimo 3 caracteres.';
 
     const errandScheme = z
         .object({
-            title: z.string({
-                invalid_type_error: msgFormatInvalid,
-                required_error: mesgRequiredError,
-            }),
-            description: z.string({
-                invalid_type_error: msgFormatInvalid,
-                required_error: mesgRequiredError,
-            }),
+            title: z
+                .string({
+                    invalid_type_error: msgFormatInvalid,
+                    required_error: mesgRequiredError,
+                })
+                .min(3, { message: msgMin }),
+            description: z
+                .string({
+                    invalid_type_error: msgFormatInvalid,
+                    required_error: mesgRequiredError,
+                })
+                .min(3, { message: msgMin }),
             filed: z.boolean({
                 invalid_type_error: msgFormatInvalid,
                 required_error: mesgRequiredError,
@@ -36,7 +41,7 @@ const updateErrandValidator = (req: Request, res: Response, next: NextFunction) 
         return next();
     } catch (error: any) {
         if (error instanceof ZodError) {
-            const responseError = error.issues.map((issue) => ({
+            const responseError = error.issues.map((issue: any) => ({
                 success: false,
                 field: issue.path[0],
                 message: issue.message,

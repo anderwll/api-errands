@@ -67,9 +67,9 @@ class Errand {
 
         if (parms.description) this._description = parms.description;
 
-        if (parms.filed) this._filed = parms.filed;
+        this._filed = parms.filed ?? this._filed;
 
-        if (parms.check) this._check = parms.check;
+        this._check = parms.check ?? this._check;
     }
 
     // -- CREATE FROM DATA BASE

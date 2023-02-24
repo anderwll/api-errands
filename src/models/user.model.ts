@@ -90,7 +90,7 @@ class User {
 
         if (parms.password) this._password = parms.password;
 
-        if (parms.darkMode) this._darkMode = parms.darkMode;
+        this._darkMode = parms.darkMode ?? this._darkMode;
 
         if (parms.typeAccount) this._typeAccount = parms.typeAccount;
     }

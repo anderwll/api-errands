@@ -44,8 +44,6 @@ class ErrandController {
 
             const user = listUser.find((user) => user.id === id) as User;
 
-            console.log(user.errands);
-
             const errands = user.errands.filter((errand) => {
                 if (title && filed) {
                     return (
