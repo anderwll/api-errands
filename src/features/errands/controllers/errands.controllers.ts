@@ -64,7 +64,7 @@ class ErrandController {
 
             const response: ResponseAPI = {
                 success: true,
-                message: 'Recados buscado com sucesso.',
+                message: `Recados de ${user.name} buscado com sucesso.`,
                 data: errands,
             };
 
