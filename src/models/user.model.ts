@@ -1,23 +1,16 @@
 import { randomUUID } from 'crypto';
 import { Errand } from './errand.model';
 
-enum TypeAccount {
-    GUYS = 'GUYS',
-    BUSINESS = 'BUSINESS',
-}
-
 interface UserCreateDTO {
     name: string;
     email: string;
     password: string;
-    typeAccount: TypeAccount;
 }
 
 interface UserUpdateDTO {
     name: string;
     password: string;
     darkMode: boolean;
-    typeAccount: TypeAccount;
 }
 
 interface UserDataBaseDTO {
@@ -26,7 +19,6 @@ interface UserDataBaseDTO {
     email: string;
     password: string;
     darkMode: boolean;
-    typeAccount: TypeAccount;
     errands: Array<Errand>;
 }
 
@@ -36,7 +28,6 @@ class User {
     private _email: string;
     private _password: string;
     private _darkMode: boolean;
-    private _typeAccount: TypeAccount;
     private _errands: Array<Errand>;
 
     // -- GETERS
@@ -55,9 +46,6 @@ class User {
     get darkMode() {
         return this._darkMode;
     }
-    get typeAccount() {
-        return this._typeAccount;
-    }
     get errands() {
         return this._errands;
     }
@@ -68,7 +56,6 @@ class User {
         this._email = parms.email;
         this._password = parms.password;
         this._darkMode = false;
-        this._typeAccount = parms.typeAccount;
         this._errands = [];
     }
 
@@ -80,7 +67,6 @@ class User {
             email: this._email,
             password: this._password,
             darkMode: this._darkMode,
-            typeAccount: this._typeAccount,
             errands: this._errands,
         };
     }
@@ -91,8 +77,6 @@ class User {
         if (parms.password) this._password = parms.password;
 
         this._darkMode = parms.darkMode ?? this._darkMode;
-
-        if (parms.typeAccount) this._typeAccount = parms.typeAccount;
     }
 
     // -- CREATE FROM DATA BASE
@@ -101,7 +85,6 @@ class User {
             name: parms.name,
             email: parms.email,
             password: parms.password,
-            typeAccount: parms.typeAccount,
         });
 
         user._id = parms.id;
@@ -113,4 +96,4 @@ class User {
     }
 }
 
-export { User, UserCreateDTO, UserUpdateDTO, TypeAccount, UserDataBaseDTO };
+export { User, UserCreateDTO, UserUpdateDTO, UserDataBaseDTO };

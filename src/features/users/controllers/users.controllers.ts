@@ -8,9 +8,9 @@ class UserController {
         try {
             const listUser = handleUsersDataBase();
 
-            const { name, email, password, typeAccount } = req.body;
+            const { name, email, password } = req.body;
 
-            const newUser = new User({ name, email, password, typeAccount });
+            const newUser = new User({ name, email, password });
 
             listUser.push(newUser);
 
@@ -86,11 +86,11 @@ class UserController {
             const listUser = handleUsersDataBase();
 
             const { id } = req.params;
-            const { name, password, darkMode, typeAccount } = req.body;
+            const { name, password, darkMode } = req.body;
 
             const index = listUser.findIndex((user) => user.id === id);
 
-            listUser[index].updateUser({ name, password, darkMode, typeAccount });
+            listUser[index].updateUser({ name, password, darkMode });
 
             saveUsersDataBase(listUser);
 

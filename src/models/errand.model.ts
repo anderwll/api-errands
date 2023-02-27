@@ -18,6 +18,7 @@ interface ErrandDataBaseDTO {
     description: string;
     filed: boolean;
     check: boolean;
+    date: Date;
 }
 
 class Errand {
@@ -26,6 +27,7 @@ class Errand {
     private _description: string;
     private _filed: boolean;
     private _check: boolean;
+    private _date: Date;
 
     // -- GETERS
     get id() {
@@ -43,6 +45,9 @@ class Errand {
     get check() {
         return this._check;
     }
+    get date() {
+        return this._date;
+    }
 
     constructor(parms: ErrandCreateDTO) {
         this._id = randomUUID();
@@ -50,6 +55,7 @@ class Errand {
         this._description = parms.description;
         this._filed = false;
         this._check = false;
+        this._date = new Date();
     }
 
     handleProperties() {
@@ -59,6 +65,7 @@ class Errand {
             description: this._description,
             filed: this._filed,
             check: this._check,
+            date: this._date,
         };
     }
 
@@ -82,6 +89,7 @@ class Errand {
         errand._id = params.id;
         errand._filed = params.filed;
         errand._check = params.check;
+        errand._date = params.date;
 
         return errand;
     }

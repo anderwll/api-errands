@@ -1,7 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { handleUsersDataBase } from '../../../database/users';
 import { ResponseAPI } from '../../typeResponseAPI';
-import { TypeAccount } from '../../../models';
 import { z, ZodError } from 'zod';
 
 const createUserValidator = (req: Request, res: Response, next: NextFunction) => {
@@ -33,9 +32,6 @@ const createUserValidator = (req: Request, res: Response, next: NextFunction) =>
             })
             .min(6, { message: msgMinPassword })
             .regex(/^(?=.*[a-z])(?=.*[0-9])/, { message: msgCharactersPassword }),
-        typeAccount: z.nativeEnum(TypeAccount, {
-            required_error: mesgRequiredError,
-        }),
     });
 
     try {

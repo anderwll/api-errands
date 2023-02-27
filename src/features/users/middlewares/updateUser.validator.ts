@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from 'express';
-import { TypeAccount } from '../../../models';
 import { z, ZodError } from 'zod';
 
 const updateUserValidator = (req: Request, res: Response, next: NextFunction) => {
@@ -27,9 +26,6 @@ const updateUserValidator = (req: Request, res: Response, next: NextFunction) =>
                 .regex(/^(?=.*[a-z])(?=.*[0-9])/, { message: msgCharactersPassword }),
             darkMode: z.boolean({
                 invalid_type_error: msgFormatInvalid,
-                required_error: mesgRequiredError,
-            }),
-            typeAccount: z.nativeEnum(TypeAccount, {
                 required_error: mesgRequiredError,
             }),
         })
