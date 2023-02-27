@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from 'express';
-import { TypeAccount } from '../../../models';
 import { z, ZodError } from 'zod';
 
 const updateErrandValidator = (req: Request, res: Response, next: NextFunction) => {
