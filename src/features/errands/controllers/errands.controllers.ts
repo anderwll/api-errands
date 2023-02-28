@@ -21,7 +21,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado criado com sucesso.',
-                data: newErrand.handleProperties(),
+                data: newErrand,
             };
 
             return res.status(200).json(response);
