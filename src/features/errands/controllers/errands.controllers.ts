@@ -12,7 +12,7 @@ class ErrandController {
 
             const index = listUser.findIndex((user) => user.id === id);
 
-            const newErrand = new Errand({ title, description }).handleProperties() as Errand;
+            const newErrand = new Errand({ title, description });
 
             listUser[index].errands.push(newErrand);
 
@@ -21,7 +21,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado criado com sucesso.',
-                data: newErrand,
+                data: newErrand.handleProperties(),
             };
 
             return res.status(200).json(response);
