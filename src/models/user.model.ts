@@ -67,7 +67,7 @@ class User {
             email: this._email,
             password: this._password,
             darkMode: this._darkMode,
-            errands: this._errands,
+            errands: this._errands.map((errand) => errand.handleProperties()),
         };
     }
 
@@ -89,8 +89,7 @@ class User {
 
         user._id = parms.id;
         user._darkMode = parms.darkMode;
-        user._errands = parms.errands;
-        //user._errands = parms.errands.map((errand) => Errand.createErrandFromDataBase(errand));
+        user._errands = parms.errands.map((errand) => Errand.createErrandFromDataBase(errand));
 
         return user;
     }

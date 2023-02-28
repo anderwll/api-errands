@@ -21,7 +21,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado criado com sucesso.',
-                data: newErrand,
+                data: newErrand.handleProperties(),
             };
 
             return res.status(200).json(response);
@@ -65,7 +65,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: `Recados de ${user.name} buscado com sucesso.`,
-                data: errands,
+                data: errands.map((errand) => errand.handleProperties()),
             };
 
             return res.status(200).json(response);
@@ -92,7 +92,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado buscado com sucesso.',
-                data: errand,
+                data: errand.handleProperties(),
             };
 
             return res.status(200).json(response);
@@ -119,25 +119,19 @@ class ErrandController {
                 (errand) => errand.id === idErrand,
             );
 
-            const editErrand = Errand.createErrandFromDataBase(
-                listUser[indexUser].errands[indexErrand],
-            );
-
-            const errandAtt = editErrand.updateErrand({
+            listUser[indexUser].errands[indexErrand].updateErrand({
                 title,
                 description,
                 filed,
                 check,
             });
 
-            listUser[indexUser].errands[indexErrand] = editErrand.handleProperties() as Errand;
-
             saveUsersDataBase(listUser);
 
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado atualizado com sucesso.',
-                data: listUser[indexUser].errands[indexErrand],
+                data: listUser[indexUser].errands[indexErrand].handleProperties(),
             };
 
             return res.status(200).json(response);
@@ -170,7 +164,7 @@ class ErrandController {
             const response: ResponseAPI = {
                 success: true,
                 message: 'Recado deletado com sucesso.',
-                data: errandDeleted,
+                data: errandDeleted.handleProperties(),
             };
 
             return res.status(200).json(response);
