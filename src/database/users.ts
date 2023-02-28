@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { User } from '../models';
 
-const path = `${__dirname}/db.json`;
+const path = `db.json`;
 
 function handleUsersDataBase(): Array<User> {
     const contentBuffer = fs.readFileSync(path);
