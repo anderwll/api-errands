@@ -55,7 +55,7 @@ class Errand {
         const day = String(newDate.getDate()).padStart(2, '0');
         const month = String(newDate.getMonth() + 1).padStart(2, '0');
         const year = newDate.getFullYear();
-        const hour = String(newDate.getHours()).padStart(2, '0');
+        const hour = String(newDate.getHours() - 3).padStart(2, '0');
         const minutes = String(newDate.getMinutes()).padStart(2, '0');
 
         this._id = randomUUID();
