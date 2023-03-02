@@ -1,1 +1,19 @@
-[{"id":"eaa71dad-1be8-4f64-91e6-14d2d2d47c60","name":"José Santos","email":"jose@gmail.com","password":"jose123","darkMode":false,"errands":[{"id":"8ed34a82-7047-4a95-aa32-8655c221a6a2","title":"Recado 1","description":"Descrição do recado 1..","filed":false,"check":true,"date":"2023-02-28T02:48:11.943Z"}]}]
+[
+    {
+        "id": "eaa71dad-1be8-4f64-91e6-14d2d2d47c60",
+        "name": "AnderWll",
+        "email": "ander@gmail.com",
+        "password": "ander123",
+        "darkMode": false,
+        "errands": [
+            {
+                "id": "8ed34a82-7047-4a95-aa32-8655c221a6a2",
+                "title": "Recado 1",
+                "description": "Descrição do recado 1..",
+                "filed": false,
+                "check": true,
+                "date": "2023-02-28T02:48:11.943Z"
+            }
+        ]
+    }
+]

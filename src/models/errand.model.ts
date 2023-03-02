@@ -18,7 +18,7 @@ interface ErrandDataBaseDTO {
     description: string;
     filed: boolean;
     check: boolean;
-    date: Date;
+    date: string;
 }
 
 class Errand {
@@ -27,7 +27,7 @@ class Errand {
     private _description: string;
     private _filed: boolean;
     private _check: boolean;
-    private _date: Date;
+    private _date: string;
 
     // -- GETERS
     get id() {
@@ -50,12 +50,20 @@ class Errand {
     }
 
     constructor(parms: ErrandCreateDTO) {
+        const newDate = new Date();
+
+        const day = String(newDate.getDate()).padStart(2, '0');
+        const month = String(newDate.getMonth() + 1).padStart(2, '0');
+        const year = newDate.getFullYear();
+        const hour = String(newDate.getHours()).padStart(2, '0');
+        const minutes = String(newDate.getMinutes()).padStart(2, '0');
+
         this._id = randomUUID();
         this._title = parms.title;
         this._description = parms.description;
         this._filed = false;
         this._check = false;
-        this._date = new Date();
+        this._date = `${day}/${month}/${year}-${hour}:${minutes}`;
     }
 
     handleProperties() {
