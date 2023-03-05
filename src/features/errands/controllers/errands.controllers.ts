@@ -52,11 +52,12 @@ class ErrandController {
                     );
                 }
 
-                if (title || filed) {
-                    return (
-                        errand.title.toLowerCase().includes((title as string).toLowerCase()) ||
-                        errand.filed === Boolean(filed === 'true' ? true : false)
-                    );
+                if (title) {
+                    return errand.title.toLowerCase().includes((title as string).toLowerCase());
+                }
+
+                if (filed) {
+                    return errand.filed === Boolean(filed === 'true' ? true : false);
                 }
 
                 return true;

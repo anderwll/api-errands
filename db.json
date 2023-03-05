@@ -1,10 +1,1 @@
-[
-    {
-        "id": "eaa71dad-1be8-4f64-91e6-14d2d2d47c60",
-        "name": "AnderWll",
-        "email": "ander@gmail.com",
-        "password": "ander123",
-        "darkMode": false,
-        "errands": []
-    }
-]
+[{"id":"eaa71dad-1be8-4f64-91e6-14d2d2d47c60","name":"AnderWll","email":"ander@gmail.com","password":"ander123","darkMode":false,"errands":[{"id":"b04e69af-b0ac-424f-bb0e-10a3963690aa","title":"Recado 1","description":"Descrição do recado..","filed":false,"check":false,"date":"05/03/2023-12:48"},{"id":"1666742d-b683-4ca0-9747-48e614098c73","title":"Recado 2","description":"Descrição do recado..","filed":true,"check":false,"date":"05/03/2023-12:48"},{"id":"5d37b9ec-9f9d-4eb6-8dbf-203ca35b3840","title":"Recado 3","description":"Descrição do recado..","filed":false,"check":false,"date":"05/03/2023-20:59"},{"id":"4ea86e6f-e258-47fd-8818-00ce75cc2627","title":"Recado 4","description":"Descrição do recado..","filed":false,"check":false,"date":"05/03/2023-16:00"},{"id":"cec1a5e4-44d8-4f51-8d0f-a5811b1523c0","title":"Recado  data","description":"Descrição do recado..","filed":false,"check":false,"date":"05/03/2023 - 16:17"}]}]

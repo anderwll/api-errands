@@ -1,4 +1,6 @@
 import { randomUUID } from 'crypto';
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
 interface ErrandCreateDTO {
     title: string;
@@ -50,20 +52,16 @@ class Errand {
     }
 
     constructor(parms: ErrandCreateDTO) {
-        const newDate = new Date();
-
-        const day = String(newDate.getDate()).padStart(2, '0');
-        const month = String(newDate.getMonth() + 1).padStart(2, '0');
-        const year = newDate.getFullYear();
-        const hour = String(newDate.getHours() - 3).padStart(2, '0');
-        const minutes = String(newDate.getMinutes()).padStart(2, '0');
+        const newDate = format(new Date(), 'dd/MM/yyyy - HH:mm', {
+            locale: ptBR,
+        });
 
         this._id = randomUUID();
         this._title = parms.title;
         this._description = parms.description;
         this._filed = false;
         this._check = false;
-        this._date = `${day}/${month}/${year}-${hour}:${minutes}`;
+        this._date = newDate;
     }
 
     handleProperties() {
