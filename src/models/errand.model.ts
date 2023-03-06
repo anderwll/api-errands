@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { format } from 'date-fns';
+import { format, utcToZonedTime } from 'date-fns-tz';
 import ptBR from 'date-fns/locale/pt-BR';
 
 interface ErrandCreateDTO {
@@ -52,7 +52,7 @@ class Errand {
     }
 
     constructor(parms: ErrandCreateDTO) {
-        const newDate = format(new Date(), 'dd/MM/yyyy - HH:mm', {
+        const date = format(utcToZonedTime(new Date(), 'America/Sao_Paulo'), 'dd/MM/yyyy - HH:mm', {
             locale: ptBR,
         });
 
@@ -61,7 +61,7 @@ class Errand {
         this._description = parms.description;
         this._filed = false;
         this._check = false;
-        this._date = newDate;
+        this._date = date;
     }
 
     handleProperties() {
