@@ -1,24 +1,24 @@
 [
     {
         "id": "eaa71dad-1be8-4f64-91e6-14d2d2d47c60",
-        "name": "Anderson Wilmsen",
-        "email": "ander@gmail.com",
-        "password": "ander123",
+        "name": "Admin",
+        "email": "admin@admin.com",
+        "password": "admin123",
         "darkMode": false,
         "errands": [
             {
                 "id": "828cdbb6-a957-444c-933c-62283c98aea0",
-                "title": "Recado  1",
-                "description": "Descrição do recado 1..",
+                "title": "Seja bem vindo",
+                "description": "Sistema de armazenamento de recados",
                 "filed": false,
                 "check": true,
                 "date": "06/03/2023 - 12:40"
             },
             {
                 "id": "b8d59066-ec37-4e6f-a826-6bee1d35bf69",
-                "title": "Recado  2",
-                "description": "Descrição do recado 2..",
-                "filed": false,
+                "title": "Onde é possivel",
+                "description": "Arquivar recados",
+                "filed": true,
                 "check": false,
                 "date": "06/03/2023 - 12:40"
             }
